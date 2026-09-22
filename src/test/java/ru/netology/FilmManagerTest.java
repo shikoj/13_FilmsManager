@@ -1,3 +1,6 @@
+package ru.netology;
+
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -92,6 +95,26 @@ public class FilmManagerTest {
                 "Movie IV",
                 "Movie III",
                 "Movie II"
+        };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindLastWhenFilmsLessThanDefaultLimit() {
+
+        manager.addFilm("Movie I");
+        manager.addFilm("Movie II");
+        manager.addFilm("Movie III");
+        manager.addFilm("Movie IV");
+
+        String[] expected = {
+                "Movie IV",
+                "Movie III",
+                "Movie II",
+                "Movie I"
+
         };
         String[] actual = manager.findLast();
 
